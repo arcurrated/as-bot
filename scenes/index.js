@@ -43,6 +43,7 @@ const nextConfigServiceChainStep = async (ctx) => {
 		}
 		db.clients.findOne({ tgId }).then(async client => {
 			if(client && client.phoneNumber){
+				ctx.client = client
 				orderRequest(ctx)
 			} else {
 				await ctx.scene.enter('receivePhoneNumber')
