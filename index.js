@@ -55,8 +55,8 @@ bot.use((ctx, next) => {
 	db.clients.findOne({ tgId }).then(data => {
 		if(data){
 			ctx.client = data
-			next()
 		}
+		next()
 	})
 })
 
